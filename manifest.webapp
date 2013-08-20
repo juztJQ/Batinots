@@ -2,6 +2,7 @@
   "name": "BateNots",
   "description": "Notifica el nivel de bateria de Firefox OS ",
   "launch_path": "/index.html",
+  "type": "privileged",
   "orientation": "portrait",
   "developer": {
     "name": "Juan Quiroga",
@@ -12,9 +13,8 @@
     "128": "/icons/icone-battery.png"
   },
   "permissions": {
-    "desktop-notification": {}
-  },
-  "messages": [
-    { "notification": "/index.html" }
-  ]
-  }
+     "desktop-notification": {
+        "description" : "Mostrar notificaciones"
+     }
+   }
+}
