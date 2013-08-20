@@ -1,0 +1,9 @@
+{
+    "name": "BateNots",
+    "package_path" : "http://localhost/batinots/batinots.zip",
+    "version": "1.0",
+    "developer": {
+        "name": "Juan Quiroga",
+        "url": "http://turismovil.com.co"
+    }
+}

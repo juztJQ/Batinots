@@ -1,0 +1,20 @@
+{
+  "name": "BateNots",
+  "description": "Notifica el nivel de bateria de Firefox OS ",
+  "launch_path": "/index.html",
+  "orientation": "portrait",
+  "developer": {
+    "name": "Juan Quiroga",
+    "url": "http://turismovil.com.co"
+  },
+  "default_locale": "es",
+  "icons": {
+    "128": "/icons/icone-battery.png"
+  },
+  "permissions": {
+    "desktop-notification": {}
+  },
+  "messages": [
+    { "notification": "/index.html" }
+  ]
+  }
