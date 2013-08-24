@@ -3,6 +3,7 @@
   "description": "Notifica el nivel de bateria de Firefox OS ",
   "launch_path": "/index.html",
   "type": "privileged",
+  "version": "1.1",
   "orientation": "portrait",
   "developer": {
     "name": "Juan Quiroga",
@@ -10,7 +11,7 @@
   },
   "default_locale": "es",
   "icons": {
-    "128": "/icons/icone-battery.png"
+    "128": "/icons/green75.png"
   },
   "permissions": {
      "desktop-notification": {

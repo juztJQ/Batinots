@@ -18,7 +18,7 @@ var NotificationsTest = function NotificationsTest() {
   /*
   bateria status
   */
-
+var btimg = document.getElementById('btrImage');
 var battery = navigator.battery || navigator.mozBattery || navigator.webkitBattery;
 var batteryLevel = battery.level * 100 + "%";
 NivelActual = battery.level;
@@ -35,12 +35,9 @@ function updateBatteryStatus() {
       duration.innerHTML = 'Tiempo Estimado: ' + battery.dischargingTime;
     //   getAppIcon(function onAppIcon(icon) {
     //   var data = new Date();
-       icon = "icons/icone-battery.png";
+       var icon = "icons/icone-battery.png";
 
-      var notification = navigator.mozNotification.createNotification(
-        'Nivel de Bateria',
-        batteryLevel ,
-        icon);
+     
 
       // notification.onclick = function onclick() {
       //   forgetNotification();
@@ -51,10 +48,47 @@ function updateBatteryStatus() {
       //   console.log('Notification closed');
       //   forgetNotification();
       // };
+      var state = battery.level*100;
+      
 
-      if(battery.level ==NivelActual -5)
+      if (state >=50 && state <= 100)
       {
-        notification.show();
+        estado.style.color="green";
+
+      }
+      if(state >75)
+      {
+        btimg.src="icons/green100.png";
+        icon = "icons/green100.png";
+      }
+      if(state <75&& state > 50)
+      {
+        btimg.src="icons/green75.png";
+        icon = "icons/green75.png";
+      }
+      if(state < 50 && state > 20)
+      {
+        btimg.src="icons/yellow.png";
+        icon = "icons/yellow.png";
+      }
+
+
+      if (state >=1 && state <= 19)
+      {
+        estado.style.color="red";
+        btimg.src="icons/red.png";
+        icon = "icons/red.png";
+      }
+       var notification = navigator.mozNotification.createNotification(
+        'Nivel de Bateria',
+        batteryLevel ,
+        icon);
+       var res = state %10;
+       console.log("esto es "+res);
+
+      if(res == 0)  
+      {
+        notification.show();  
         NivelActual = battery.level;
 
       }
@@ -69,14 +103,17 @@ function updateBatteryStatus() {
   if (battery.charging) {
     console.log("Battery is charging"); 
     
-    estado.innerHTML = 'Nivel de bateria: ' + "Cargando";
+    estado.innerHTML = 'Nivel de bateria: ' + "Cargando " + batteryLevel;
     duration.innerHTML = 'Tiempo Estimado: ' + battery.dischargingTime ;/// 60;
-    var icon = "icons/icone-battery.png";
     var notificationCharge = navigator.mozNotification.createNotification(
         'Nivel de Bateria',
         "Cargando Bateria " + batteryLevel ,
         icon);
-    notificationCharge.show();
+        if(state >=90)
+        {
+          notificationCharge.show();
+        }
+    
   }
 }
 
